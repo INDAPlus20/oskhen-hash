@@ -165,11 +165,5 @@ def editDB(table, filename):
         elif choice == 6:
             break
 
-    
-
-
-
-
-
 if __name__ == "__main__":
     mainMenu()
