@@ -5,7 +5,7 @@ from itertools import count
 from collections import namedtuple
 import copy
 
-DEFAULT_SIZE = 3
+DEFAULT_SIZE = 100
 
 def is_prime(n):
     if n == 2:
@@ -86,6 +86,8 @@ class HashTable:
             if entry:
                 self.insert(entry.key, entry.value)
         
+        self.initMAD()
+        
 
     def insert(self, key, value):
 
@@ -117,7 +119,12 @@ class HashTable:
         if self.hashTable[pos]:
             self.usedsize -= 1
 
-        self.hashTable[pos] = None
+        if self.hashTable[pos]:
+            self.hashTable[pos] = None
+            return True
+        else:
+            return False
+
 
 
 if __name__ == "__main__":
